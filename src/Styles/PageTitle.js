@@ -2,25 +2,27 @@ import styled from "styled-components"
 
 const PageTitle = styled.div`
 	width: 90vw;
-    height: 46px;
+    height: 80px;
 
 	color: #ffffff;
-	font-size: 20px;
-
+	font-size: 30px;
 	font-weight: bold;
-
-	border-radius: 5px;
-	background-color: #a328d6;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-	margin-bottom: 20px;
+
+    margin: 0 auto;
+
+    position: absolute;
+    left: 0;
+    top: 0;
 
     h1 {
         color: #ffffff;
         font-size: 26px;
         font-weight: bold;
+        font-family: 'Raleway', sans-serif;
     }
 `;
 

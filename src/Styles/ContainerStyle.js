@@ -11,6 +11,8 @@ const PageContainer = styled.div`
 
 	margin: 0 auto;
 
+    position: relative;
+
     a {
         color: #ffffff;
         font-size: 15px;

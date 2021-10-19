@@ -17,7 +17,7 @@ export default function Login() {
     function logInto(event) {
         event.preventDefault();
         setButtonName(<Loader
-            type="Audio"
+            type="ThreeDots"
             color="#ffffff"
             height={40}
             width={40}
