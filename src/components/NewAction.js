@@ -12,10 +12,12 @@ export default function NewAction() {
                     <span>Nova entrada</span>
                 </New>
             </Link>
-            <New type="out">
-                <CgRemove />
-                <span>Nova saída</span>
-            </New>
+            <Link to="/new-exit" >
+                <New type="out">
+                    <CgRemove />
+                    <span>Nova saída</span>
+                </New>
+            </Link>
         </Actions>
     );
 }

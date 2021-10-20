@@ -3,6 +3,7 @@ import Home from "./components/pages/Home";
 
 import Login from "./components/pages/Login";
 import NewEntry from "./components/pages/NewEntry";
+import NewExit from "./components/pages/NewExit";
 import SignUp from "./components/pages/SignUp";
 
 import GlobalStyle from "./Styles/GlobalStyle";
@@ -24,6 +25,9 @@ export default function App() {
                 </Route>
                 <Route path="/new-entry" exact>
                     <NewEntry />
+                </Route>
+                <Route path="/new-exit" exact>
+                    <NewExit />
                 </Route>
             </Switch>
         </BrowserRouter>

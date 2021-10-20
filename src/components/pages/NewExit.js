@@ -1,20 +1,18 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { PageContainer } from "../../Styles/ContainerStyle";
-
 import Loader from "react-loader-spinner";
-
+import { PageContainer } from "../../Styles/ContainerStyle";
 import Header from "../Header";
-import FormNew from "../FormNew"
+import FormNew from "../FormNew";
 
-export default function NewEntry() {
+export default function NewExit() {
     const history = useHistory();
 
-    const [title, setTitle] = useState('Nova Entrada');
-    const [buttonName, setButtonName] = useState("Salvar entrada");
+    const [title, setTitle] = useState('Nova saída');
+    const [buttonName, setButtonName] = useState("Salvar saída");
 
-    function entry(event) {
+    function exit(event) {
         event.preventDefault();
         setButtonName(<Loader
             type="ThreeDots"
@@ -30,7 +28,7 @@ export default function NewEntry() {
     return (
         <PageContainer page="app" >
             <Header name = {title} logout={false}/>
-            <FormNew action={entry} buttonName={buttonName} />
+            <FormNew action={exit} buttonName={buttonName} />
         </PageContainer>
     );
 }
