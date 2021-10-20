@@ -7,9 +7,9 @@ import NewAction from "../NewAction";
 import Transactions from "../Transactions";
 
 export default function Home() {
-    const [name, setName] = useState('Fulano')
+    const [name, setName] = useState('Olá, Fulano')
     return (
-        <PageContainer>
+        <PageContainer page="center">
             <Header name = {name} logout={true}/>
             <Transactions />
             <NewAction />

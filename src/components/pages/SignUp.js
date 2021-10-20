@@ -29,7 +29,7 @@ export default function SignUp() {
         }, 3000)
     }
     return (
-        <PageContainer>
+        <PageContainer page="center" >
             <TitleForm><h1>MYWallet</h1></TitleForm>
             <form onSubmit={signup}>
                 <Input type="text" placeholder="Nome" required />

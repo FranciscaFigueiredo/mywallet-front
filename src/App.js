@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 
 import Login from "./components/pages/Login";
+import NewEntry from "./components/pages/NewEntry";
 import SignUp from "./components/pages/SignUp";
 
 import GlobalStyle from "./Styles/GlobalStyle";
@@ -20,6 +21,9 @@ export default function App() {
                 </Route>
                 <Route path="/home" exact>
                     <Home />
+                </Route>
+                <Route path="/new-entry" exact>
+                    <NewEntry />
                 </Route>
             </Switch>
         </BrowserRouter>

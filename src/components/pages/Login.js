@@ -29,7 +29,7 @@ export default function Login() {
     }
 
     return (
-        <PageContainer>
+        <PageContainer page="center">
             <TitleForm><h1>MYWallet</h1></TitleForm>
             <form onSubmit={logInto}>
                 <Input type="email" placeholder="E-mail" required />

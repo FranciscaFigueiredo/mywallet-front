@@ -2,13 +2,12 @@ import styled from "styled-components"
 
 const Actions = styled.div`
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
 `;
 
 const New = styled.div`
-	width: 40vw;
+	width: 43vw;
     height: 100px;
 
 	color: #ffffff;
@@ -31,7 +30,8 @@ const New = styled.div`
 
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: ${(props) => props.type === "in" ? 0 : ""};
+    right: ${(props) => props.type === "out" ? 0 : ""};
 
     span {
         width: 20vw;

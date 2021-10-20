@@ -4,10 +4,6 @@ const PageTitle = styled.div`
 	width: 90vw;
     height: 80px;
 
-	color: #ffffff;
-	font-size: 30px;
-	font-weight: bold;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,6 +19,12 @@ const PageTitle = styled.div`
         font-size: 26px;
         font-weight: bold;
         font-family: 'Raleway', sans-serif;
+    }
+
+    a {
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: bold;
     }
 `;
 

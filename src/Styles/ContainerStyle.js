@@ -7,7 +7,7 @@ const PageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: ${ (props) => props.page === "center" ? "center" : "flex-start" };
 
 	margin: 0 auto;
 
@@ -17,6 +17,10 @@ const PageContainer = styled.div`
         color: #ffffff;
         font-size: 15px;
         font-weight: bold;
+    }
+
+    form {
+        margin-top: ${ (props) => props.page === "center" ? "0" : "100px" };
     }
 `;
 
