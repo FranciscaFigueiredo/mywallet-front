@@ -15,6 +15,7 @@ export default function SignUp() {
     const history = useHistory();
 
     const [buttonName, setButtonName] = useState("Cadastrar");
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -39,12 +40,16 @@ export default function SignUp() {
             color="#ffffff"
             height={40}
             width={40}
-            timeout={2000} //3 secs
+            timeout={2000} //2 secs
         />)
 
-        postSignUp(userData).then(setTimeout(() => {
-            history.push("/")
-        }, 2000))
+        if(password === confirmPassword) {
+            postSignUp(userData).then(setTimeout(() => {
+                history.push("/")
+            }, 2000))
+        } else {
+            alert("Senhas diferentes")
+        }
 
         
     }
