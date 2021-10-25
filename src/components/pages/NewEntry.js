@@ -7,9 +7,12 @@ import Loader from "react-loader-spinner";
 
 import Header from "../Header";
 import FormNew from "../FormNew"
+import { postNewEntry } from "../../services/myWallet";
+import { UserLoginValidation } from "../../userLogin";
 
 export default function NewEntry() {
     const history = useHistory();
+    const token = UserLoginValidation();
 
     const [title, setTitle] = useState('Nova Entrada');
     const [buttonName, setButtonName] = useState("Salvar entrada");
@@ -22,7 +25,8 @@ export default function NewEntry() {
             height={40}
             width={40}
             timeout={2000} //3 secs
-        />)
+        />);
+        
         setTimeout(() => {
             history.push("/home")
         }, 2000);

@@ -8,11 +8,66 @@ function postSignUp(body) {
 }
 
 function postLogin(body) {
-    const promise = axios.post(`${BASE_URL}/`, body);
+    const promise = axios.post(`${BASE_URL}/login`, body);
+    return promise;
+}
+
+function postNewEntry(body, token) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.post(`${BASE_URL}/new-transition?type=entry`, body, config);
+    return promise;
+}
+
+function postNewExit(body, token) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.post(`${BASE_URL}/new-transition?type=exit`, body, config);
+    return promise;
+}
+
+function postLogout(token) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.post(`${BASE_URL}/logout`, config);
+    return promise;
+}
+
+function getWallet(token) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.get(`${BASE_URL}/`, config);
+    return promise;
+}
+
+function getUserInfo(token) {
+    console.log(token)
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.get(`${BASE_URL}/user`, config);
     return promise;
 }
 
 export {
     postSignUp,
-    postLogin
+    postLogin,
+    getWallet,
+    postNewEntry,
+    getUserInfo,
+    postNewExit
 }

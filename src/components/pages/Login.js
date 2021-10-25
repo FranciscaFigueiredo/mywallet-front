@@ -7,10 +7,12 @@ import { PageContainer } from "../../Styles/ContainerStyle";
 import { Button } from "../ButtonStyle";
 import Input from "../../Styles/Form/InputStyle";
 import TitleForm from "../../Styles/Form/TitleFormStyle";
-import { useEffect, useState } from "react";
-import { postLogin } from "../../services/myWallet";
+import { useContext, useEffect, useState } from "react";
+import { getUserInfo, postLogin } from "../../services/myWallet";
+import UserContext from "../../contexts/UserContext";
+import { UserLoginValidation } from "../../userLogin";
 
-export default function Login() {
+export default function Login({setUser, token, setToken}) {
     const history = useHistory();
 
     const [buttonName, setButtonName] = useState("Entrar");
@@ -26,19 +28,36 @@ export default function Login() {
             password
         })
     }, [email, password])
+    
+    function redirectLogin(res) {
+        
+        setToken(res.data);
+        setUserLog(res);
+        
+        const user = JSON.stringify(res.data);
+        sessionStorage.setItem("user", user);
+        
+        setTimeout(() => {
+            history.push("/home")
+        }, 2000)
+    }
 
+    function setUserLog(res) {
+        getUserInfo(res.data).then((res) => setUser(res.data.name))
+    }
+
+    console.log(userData)
     function logInto(event) {
         event.preventDefault();
+
         setButtonName(<Loader
             type="ThreeDots"
             color="#ffffff"
             height={40}
             width={40}
-            timeout={2000} //32 secs
+            timeout={3000} //3 secs
         />)
-        postLogin(userData).then(setTimeout(() => {
-            history.push("/home")
-        }, 2000))
+        postLogin(userData).then(redirectLogin)
     }
 
     return (

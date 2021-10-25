@@ -23,7 +23,6 @@ export default function SignUp() {
 
     const [userData, setUserData] = useState({})
 
-
     useEffect(() => {
         setUserData({
             name,
@@ -50,9 +49,8 @@ export default function SignUp() {
         } else {
             alert("Senhas diferentes")
         }
-
-        
     }
+
     return (
         <PageContainer page="center" >
             <TitleForm><h1>MYWallet</h1></TitleForm>
