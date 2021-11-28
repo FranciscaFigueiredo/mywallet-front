@@ -11,7 +11,7 @@ const Records = styled.div`
     background-color: #ffffff;
     border-radius: 5px;
 
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 
     display: flex;
     flex-direction: column;
@@ -26,7 +26,6 @@ const Records = styled.div`
 
 const Info = styled.div`
 	width: 100%;
-    /* height: 64vh; */
 
     color: #333333;
 
@@ -49,42 +48,66 @@ const Info = styled.div`
 const Date = styled.span`
     width: 16vw;
     color: #868686;
-`
+`;
 
 const Description = styled.span`
     width: 52vw;
     color: #000000;
 
     text-align: left;
-`
+`;
 
 const Value = styled.span`
-    width: 16vw;
+    min-width: 16vw;
     color: ${(props) => props.value < 0 ? '#c70000' : '#03ac00'};
-`
+`;
 
 const Title = styled.span`
     width: 20vw;
 
     color: #000000;
     font-weight: bold;
-    padding: 0 10px
-`
+    padding: 0 10px;
+`;
 
-const Saldo = styled.div`
+const Total = styled.div`
     width: 100%;
+    height: 8vh;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    margin: 0 auto;
-    padding: 20px 10px;
+    padding: 30px 10px 20px;
 
     position: absolute;
     bottom: 0;
     left: 0;
-`
+    z-index: 10;
+`;
+
+const TransactionsContainer = styled.div`
+	width: 90vw;
+    height: 54vh;
+
+	font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+
+    background-color: #ffffff;
+    border-radius: 5px;
+
+    overflow-x: scroll;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 10px 10px 20px;
+
+    position: relative;
+`;
 
 export {
     Records,
@@ -93,5 +116,6 @@ export {
     Description,
     Value,
     Title,
-    Saldo
+    Total,
+    TransactionsContainer,
 }

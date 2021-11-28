@@ -1,32 +1,38 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { getWallet } from "../services/myWallet";
-import { Date, Description, Info, Records, Saldo, Title, Value } from "../Styles/TransactionsStyle";
+import { Date, Description, Info, Records, Total, Title, TransactionsContainer, Value } from "../styles/TransactionsStyle";
 import { UserLoginValidation } from "../userLogin";
 
 export default function Transactions() {
     const [wallet, setWallet] = useState([]);
-    const [saldo, setSaldo] = useState()
+    const [total, setTotal] = useState()
 
     const token = UserLoginValidation();
 
     useEffect(() => {
-        // setWallet([])    
-
-        getWallet(token).then((res) => (setWallet(res.data.walletData),setSaldo(res.data.totalData)));   
-    }, []);
+        getWallet(token).then((res) => {
+            setWallet([...res.data.wallet]);
+            setTotal(res.data.total);
+        });   
+    }, [token]);
 
     return (
         <Records>
-            {
-                wallet === [] ?
-                    <Description>Não há registros de entrada ou saída</Description>
-                    : wallet.map((data, index) => (<Wallet key={index} wallet = {data} />))
-            }
-            <Saldo>
-                <Title>SALDO</Title>
-                <Value value={saldo}>{saldo}</Value>
-            </Saldo>
+            <TransactionsContainer>
+                {
+                    wallet.length ?
+                        wallet.map((data, index) => (<Wallet key={index} wallet = {data} />))
+                        :
+                        <Description>Não há registros de entrada ou saída</Description>
+                        
+                }
+            </TransactionsContainer>
+            
+            <Total>
+                <Title>Saldo</Title>
+                <Value value={total}>{total}</Value>
+            </Total>
             
         </Records>
     );

@@ -1,19 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import UserContext from "../src/contexts/UserContext";
-import Home from "./components/pages/Home";
+import Home from "./pages/Home";
 
-import Login from "./components/pages/Login";
-import NewEntry from "./components/pages/NewEntry";
-import NewExit from "./components/pages/NewExit";
-import SignUp from "./components/pages/SignUp";
+import Login from "./pages/Login";
+import NewEntry from "./pages/NewEntry";
+import NewExit from "./pages/NewExit";
+import SignUp from "./pages/SignUp";
 
-import GlobalStyle from "./Styles/GlobalStyle";
+import GlobalStyle from "./styles/GlobalStyle";
 
 export default function App() {
 
     const [user, setUser] = useState(null);
 	const [ token, setToken ] = useState(null);
+
+    useEffect(() => {
+        if (user === null) {
+            setUser(JSON.parse(sessionStorage.getItem("name")));
+        }
+    }, [user])
+
+    console.log(user)
     
     return (
         <BrowserRouter>
