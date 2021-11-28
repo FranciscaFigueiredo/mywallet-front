@@ -53,7 +53,6 @@ function getWallet(token) {
 }
 
 function getUserInfo(token) {
-    console.log(token)
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -67,6 +66,7 @@ export {
     postSignUp,
     postLogin,
     getWallet,
+    postLogout,
     postNewEntry,
     getUserInfo,
     postNewExit

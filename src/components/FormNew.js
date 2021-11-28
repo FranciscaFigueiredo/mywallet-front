@@ -1,32 +1,75 @@
 import { useEffect, useState } from "react";
 
-import { postNewEntry, postNewExit, postTransition } from "../services/myWallet";
+import { postNewEntry, postNewExit } from "../services/myWallet";
 
 import { UserLoginValidation } from "../userLogin";
-import { Button } from "./ButtonStyle";
+import { Button } from "../styles/ButtonStyle";
 
-import Input from "../Styles/Form/InputStyle";
+import Input from "../styles/Form/InputStyle";
 import { useHistory } from "react-router-dom";
 
-export default function FormNew({ action, buttonName }) {
+import Loader from "react-loader-spinner";
+
+export default function FormNew({ buttonName, setButtonName, setModal, setModalSuccess, setMessage }) {
     const token = UserLoginValidation();
     const history = useHistory()
 
     const [value, setValue] = useState('');
     const [description, setDescription] = useState("")
+    const [disable, setDisable] = useState(false);
 
     useEffect(() => {
+        setValue(value.replace(',', '.'))
     }, [value, description]);
+
+    function errorResponse(err) {
+        if(err.response.status === 400) {
+            setValue('');
+            setDescription('');
+            setMessage('Dica: o valor deve ser numérico');
+            setModal(true);
+        }
+
+        if (err.response.status === 500) {
+            setMessage("Servidor fora de área, tente novamente mais tarde");
+            setModal(true);
+            setTimeout(() => {
+                sessionStorage.clear()
+                window.location.reload()
+                history.push('/')
+            }, 2000)
+        }
+    }
 
     function entry(event) {
         event.preventDefault();
 
+        setButtonName(<Loader
+            type="ThreeDots"
+            color="#ffffff"
+            height={40}
+            width={40}
+            timeout={2000} //2 secs
+        />);
+
         postNewEntry({
             value,
             description
-        }, token).then(setTimeout(() => {
-            history.push("/home")
-        }, 2000))
+        }, token)
+        .then((res) => {
+            setMessage('');
+            setModalSuccess(true);
+            setTimeout(() => {
+                history.push("/home")
+            }, 1000)
+        })
+        .catch((err) => {
+            console.error();
+            setButtonName('Salvar entrada')
+            setDisable(false);
+
+            errorResponse(err);
+        })
     }
 
     function exit(event) {
@@ -35,21 +78,28 @@ export default function FormNew({ action, buttonName }) {
         postNewExit({
             value,
             description
-        }, token).then(setTimeout(() => {
-            history.push("/home")
-        }, 2000))
+        }, token)
+        .then((res) => {
+            setMessage('');
+            setModalSuccess(true);
+            setTimeout(() => {
+                history.push("/home")
+            }, 1000)
+        })
+        .catch((err) => {
+            console.error();
+            setButtonName('Salvar saída')
+            setDisable(false);
 
-        setTimeout(() => {
-            history.push("/home")
-        }, 2000);
+            errorResponse(err);
+        })
     }
 
-    console.log({value, description})
     return (
-        <form onSubmit={action, buttonName === 'Salvar entrada' ? entry : exit}>
-            <Input type="text" placeholder="Valor" value={value} onChange={(event) => (setValue(event.target.value.replace(/([0-9]{3}),([0-9]{2}$)/g, `.$1,$2`)))} />
-            <Input type="text" placeholder="Descrição" value={description} onChange={(event) => (setDescription(event.target.value))} />
-            <Button type="submit">{ buttonName }</Button>
+        <form onSubmit={buttonName === 'Salvar entrada' ? entry : exit}>
+            <Input compare={true} type="text" placeholder="Valor" required disabled={disable} value={value} onChange={(event) => (setValue(event.target.value.replace(/([0-9]{3}),([0-9]{2}$)/g, `.$1,$2`)))} />
+            <Input compare={true} type="text" placeholder="Descrição" required disabled={disable} value={description} onChange={(event) => (setDescription(event.target.value))} />
+            <Button type="submit" disabled={false}>{ buttonName }</Button>
         </form>
     );
 }
