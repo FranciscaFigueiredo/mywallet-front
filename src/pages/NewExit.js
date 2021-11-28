@@ -7,8 +7,10 @@ import Header from "../components/Header";
 import FormNew from "../components/FormNew"
 import ModalError from "../shared/ModalError";
 import ModalSuccess from "../shared/ModalSuccess";
+import { UserLoginValidation } from "../userLogin";
 
 export default function NewExit() {
+    UserLoginValidation();
     const history = useHistory();
 
     const [modal, setModal] = useState(false);
@@ -24,7 +26,7 @@ export default function NewExit() {
             color="#ffffff"
             height={40}
             width={40}
-            timeout={2000} //3 secs
+            timeout={2000} //2 secs
         />)
         setTimeout(() => {
             history.push("/home")

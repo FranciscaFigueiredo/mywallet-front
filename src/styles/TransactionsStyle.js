@@ -11,8 +11,6 @@ const Records = styled.div`
     background-color: #ffffff;
     border-radius: 5px;
 
-    /* overflow-x: scroll; */
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,6 +58,7 @@ const Description = styled.span`
 const Value = styled.span`
     min-width: 16vw;
     color: ${(props) => props.value < 0 ? '#c70000' : '#03ac00'};
+    text-align: right;
 `;
 
 const Title = styled.span`
@@ -97,7 +96,8 @@ const TransactionsContainer = styled.div`
     background-color: #ffffff;
     border-radius: 5px;
 
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
     display: flex;
     flex-direction: column;

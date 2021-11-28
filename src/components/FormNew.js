@@ -97,7 +97,7 @@ export default function FormNew({ buttonName, setButtonName, setModal, setModalS
 
     return (
         <form onSubmit={buttonName === 'Salvar entrada' ? entry : exit}>
-            <Input compare={true} type="text" placeholder="Valor" required disabled={disable} value={value} onChange={(event) => (setValue(event.target.value.replace(/([0-9]{3}),([0-9]{2}$)/g, `.$1,$2`)))} />
+            <Input compare={true} type="text" placeholder="Valor" required disabled={disable} value={value} onChange={(event) => (setValue(event.target.value))} />
             <Input compare={true} type="text" placeholder="Descrição" required disabled={disable} value={description} onChange={(event) => (setDescription(event.target.value))} />
             <Button type="submit" disabled={false}>{ buttonName }</Button>
         </form>

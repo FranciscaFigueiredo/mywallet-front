@@ -1,19 +1,18 @@
 import { PageTitle } from "../styles/PageTitle";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { postLogout } from "../services/myWallet";
 import { UserLoginValidation } from "../userLogin";
 
 export default function Header({ name, logout }) {
+    const history = useHistory();
     const token = UserLoginValidation();
-    console.log({token})
+
     function logoutUser() {
-        postLogout(token).then((res) => {
-            sessionStorage.clear()
-            window.location.reload()
-        }).catch((err) => console.error())
+        postLogout(token).catch((err) => console.error())
         sessionStorage.clear()
         window.location.reload()
+        history.push('/')
     }
 
     return (
@@ -21,9 +20,7 @@ export default function Header({ name, logout }) {
             <h1>{name}</h1>
             {
                 logout ?
-                <Link to='/' >
-                    <RiLogoutBoxRLine onClick={logoutUser} />
-                </Link>
+                <h1><RiLogoutBoxRLine onClick={() => logoutUser()} /></h1>
                 : ""
             }
             

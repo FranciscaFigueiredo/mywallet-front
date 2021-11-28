@@ -12,7 +12,7 @@ import { getUserInfo, postLogin } from "../services/myWallet";
 import ModalError from "../shared/ModalError";
 import ModalSuccess from "../shared/ModalSuccess";
 
-export default function Login({ setUser, token, setToken }) {
+export default function Login({ user, setUser, setToken }) {
     const history = useHistory();
 
     const [modal, setModal] = useState(false);
@@ -32,6 +32,10 @@ export default function Login({ setUser, token, setToken }) {
             password,
         });
     }, [email, password]);
+
+    if (user) {
+        history.push('/home')
+    }
 
     function redirectLogin(res) {
         setToken(res.data);
