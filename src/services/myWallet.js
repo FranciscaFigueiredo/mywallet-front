@@ -69,5 +69,5 @@ export {
     postLogout,
     postNewEntry,
     getUserInfo,
-    postNewExit
+    postNewExit,
 }

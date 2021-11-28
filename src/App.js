@@ -19,9 +19,7 @@ export default function App() {
         if (user === null) {
             setUser(JSON.parse(sessionStorage.getItem("name")));
         }
-    }, [user])
-
-    console.log(user)
+    }, [user]);
     
     return (
         <BrowserRouter>

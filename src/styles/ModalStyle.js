@@ -47,4 +47,7 @@ const Message = styled.div`
   }
 `;
 
-export { Modal, Message };
+export { 
+  Modal,
+  Message,
+};

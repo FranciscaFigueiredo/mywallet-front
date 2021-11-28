@@ -23,5 +23,5 @@ const PageTitle = styled.div`
 `;
 
 export {
-    PageTitle
+    PageTitle,
 }
