@@ -6,8 +6,10 @@ import Header from "../components/Header";
 import FormNew from "../components/FormNew"
 import ModalError from "../shared/ModalError";
 import ModalSuccess from "../shared/ModalSuccess";
+import { UserLoginValidation } from "../userLogin";
 
 export default function NewEntry() {
+    UserLoginValidation();
     const [modal, setModal] = useState(false);
     const [modalSuccess, setModalSuccess] = useState(false);
     const [message, setMessage] = useState(1);

@@ -20,12 +20,6 @@ const PageTitle = styled.div`
         font-weight: bold;
         font-family: 'Raleway', sans-serif;
     }
-
-    a {
-        color: #ffffff;
-        font-size: 30px;
-        font-weight: bold;
-    }
 `;
 
 export {

@@ -7,10 +7,6 @@ function UserLoginValidation() {
 
     if (user === null) {
         history.push("/")
-        if (user) {
-            user.token = "";
-        }
-        window.location.reload()
     }
     
     return user;

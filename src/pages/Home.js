@@ -6,8 +6,10 @@ import Header from "../components/Header";
 import NewAction from "../components/NewAction";
 import Transactions from "../components/Transactions";
 import UserContext from "../contexts/UserContext";
+import { UserLoginValidation } from "../userLogin";
 
 export default function Home() {
+    UserLoginValidation();
     const user = useContext(UserContext);
 
     const [name, setName] = useState('Olá!')
