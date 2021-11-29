@@ -21,7 +21,7 @@ const Message = styled.div`
   min-width: 50vw;
   max-width: 90vw;
   min-height: 50vw;
-  max-height: 35vh;
+  max-height: 40vh;
 
   display: flex;
   flex-direction: column;
