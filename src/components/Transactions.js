@@ -1,8 +1,8 @@
-import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { getWallet } from "../services/myWallet";
-import { Date, Description, Info, Records, Total, Title, TransactionsContainer, Value } from "../styles/TransactionsStyle";
+import { Description, Records, Total, Title, TransactionsContainer, Value } from "../styles/TransactionsStyle";
 import { UserLoginValidation } from "../userLogin";
+import Wallet from "./Wallet";
 
 export default function Transactions() {
     const [wallet, setWallet] = useState([]);
@@ -35,28 +35,5 @@ export default function Transactions() {
             </Total>
             
         </Records>
-    );
-}
-
-function Wallet({ wallet }) {
-    const {
-        date,
-        description,
-        value
-    } = wallet;  
-
-    const dateFormat = dayjs(date).format('DD/MM');
-    let valueFormat = value;
-
-    if (value < 0) {
-        valueFormat = value * -1
-    }
-
-    return (
-        <Info>
-            <Date>{ dateFormat }</Date>
-            <Description>{ description }</Description>
-            <Value value={value}>{ valueFormat }</Value>
-        </Info>
     );
 }

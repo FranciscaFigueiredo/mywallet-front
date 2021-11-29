@@ -26,7 +26,7 @@ export default function FormNew({ buttonName, setButtonName, setModal, setModalS
         if(err.response.status === 400) {
             setValue('');
             setDescription('');
-            setMessage('Dica: o valor deve ser numérico');
+            setMessage('Dica: o valor deve ser numérico e maior que zero');
             setModal(true);
         }
 

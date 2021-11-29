@@ -12,7 +12,7 @@ export default function Home() {
     UserLoginValidation();
     const user = useContext(UserContext);
 
-    const [name, setName] = useState('Olá!')
+    const [name, setName] = useState('Olá!');
 
     useEffect(() => {
         setName(`Olá, ${user.user}!`);

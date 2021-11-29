@@ -1,14 +1,13 @@
 import axios from "axios";
-
-const BASE_URL = "http://www.localhost:4000";
+import { api } from "./apiUrl";
 
 function postSignUp(body) {
-    const promise = axios.post(`${BASE_URL}/sign-up`, body);
+    const promise = axios.post(`${api}/sign-up`, body);
     return promise;
 }
 
 function postLogin(body) {
-    const promise = axios.post(`${BASE_URL}/login`, body);
+    const promise = axios.post(`${api}/login`, body);
     return promise;
 }
 
@@ -18,7 +17,7 @@ function postNewEntry(body, token) {
             Authorization: `Bearer ${token}`
         }
     }
-    const promise = axios.post(`${BASE_URL}/new-transition?type=entry`, body, config);
+    const promise = axios.post(`${api}/new-transition?type=entry`, body, config);
     return promise;
 }
 
@@ -28,7 +27,7 @@ function postNewExit(body, token) {
             Authorization: `Bearer ${token}`
         }
     }
-    const promise = axios.post(`${BASE_URL}/new-transition?type=exit`, body, config);
+    const promise = axios.post(`${api}/new-transition?type=exit`, body, config);
     return promise;
 }
 
@@ -38,7 +37,7 @@ function postLogout(token) {
             Authorization: `Bearer ${token}`
         }
     }
-    const promise = axios.post(`${BASE_URL}/logout`, config);
+    const promise = axios.post(`${api}/logout`, config);
     return promise;
 }
 
@@ -48,7 +47,7 @@ function getWallet(token) {
             Authorization: `Bearer ${token}`
         }
     }
-    const promise = axios.get(`${BASE_URL}/`, config);
+    const promise = axios.get(`${api}/`, config);
     return promise;
 }
 
@@ -58,7 +57,7 @@ function getUserInfo(token) {
             Authorization: `Bearer ${token}`
         }
     }
-    const promise = axios.get(`${BASE_URL}/user`, config);
+    const promise = axios.get(`${api}/user`, config);
     return promise;
 }
 
@@ -69,5 +68,5 @@ export {
     postLogout,
     postNewEntry,
     getUserInfo,
-    postNewExit
+    postNewExit,
 }

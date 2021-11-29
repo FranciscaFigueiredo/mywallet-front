@@ -25,5 +25,5 @@ const PageContainer = styled.div`
 `;
 
 export {
-    PageContainer
+    PageContainer,
 }
