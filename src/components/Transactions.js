@@ -13,9 +13,12 @@ export default function Transactions() {
     useEffect(() => {
         getWallet(token).then((res) => {
             setWallet([...res.data.wallet]);
-            setTotal(res.data.total);
+            setTotal(res.data.total.toFixed(2).replace('.', ','));
         });   
     }, [token]);
+    console.log(wallet);
+
+    // const totalFormated = total.toFixed(2).replace('.', ',');
 
     return (
         <Records>

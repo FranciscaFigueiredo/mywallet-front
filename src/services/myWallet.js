@@ -61,6 +61,16 @@ function getUserInfo(token) {
     return promise;
 }
 
+function deleteFinancialEvent({ token, id }) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.delete(`${api}/event/${ id }`, config);
+    return promise;
+}
+
 export {
     postSignUp,
     postLogin,
@@ -69,4 +79,5 @@ export {
     postNewEntry,
     getUserInfo,
     postNewExit,
+    deleteFinancialEvent,
 }
