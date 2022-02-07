@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
+import Loader from "react-loader-spinner";
 import { PageContainer } from "../styles/ContainerStyle";
-
 import Header from "../components/Header";
 import FormNew from "../components/FormNew"
 import ModalError from "../shared/ModalError";
@@ -9,18 +10,35 @@ import ModalSuccess from "../shared/ModalSuccess";
 import { UserLoginValidation } from "../userLogin";
 import NewAction from "../components/NewAction";
 
-export default function NewEntry() {
+export default function EditFinancialEvent({ id }) {
     UserLoginValidation();
+    const history = useHistory();
+
     const [modal, setModal] = useState(false);
     const [modalSuccess, setModalSuccess] = useState(false);
     const [message, setMessage] = useState(1);
 
-    const [buttonName, setButtonName] = useState("Salvar entrada");
+    const [buttonName, setButtonName] = useState("Atualizar saída");
 
+
+
+    function exit(event) {
+        event.preventDefault();
+        setButtonName(<Loader
+            type="ThreeDots"
+            color="#ffffff"
+            height={40}
+            width={40}
+            timeout={2000} //2 secs
+        />)
+        setTimeout(() => {
+            history.push("/home")
+        }, 2000);
+    }
     return (
         <PageContainer page="app" >
-            <Header name='Nova Entrada' logout={false}/>
-            <FormNew buttonName={buttonName} setButtonName={setButtonName} setModal={setModal} setModalSuccess={setModalSuccess} setMessage={setMessage} />
+            <Header name='Editar saída' logout={false}/>
+            <FormNew action={exit} buttonName={buttonName} setButtonName={setButtonName} setModal={setModal} setModalSuccess={setModalSuccess} setMessage={setMessage} />
 
             {
                 modal ?

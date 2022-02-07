@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import UserContext from "../src/contexts/UserContext";
+import EditFinancialEvent from "./pages/EditFinancialEvent";
 import Home from "./pages/Home";
 
 import Login from "./pages/Login";
@@ -40,6 +41,9 @@ export default function App() {
                     </Route>
                     <Route path="/new-exit" exact>
                         <NewExit />
+                    </Route>
+                    <Route path="/edit/:id" exact>
+                        <EditFinancialEvent />
                     </Route>
                 </Switch>
             </UserContext.Provider>

@@ -48,6 +48,13 @@ const Date = styled.span`
     color: #868686;
 `;
 
+const Delete = styled.span`
+    width: 12vw;
+    color: #868686;
+
+    cursor: pointer;
+`;
+
 const Description = styled.span`
     width: 52vw;
     color: #000000;
@@ -113,6 +120,7 @@ export {
     Records,
     Info,
     Date,
+    Delete,
     Description,
     Value,
     Title,

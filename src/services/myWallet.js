@@ -61,6 +61,36 @@ function getUserInfo(token) {
     return promise;
 }
 
+function deleteFinancialEvent({ token, id }) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.delete(`${api}/event/${ id }`, config);
+    return promise;
+}
+
+function updateFinancialEvent({ body, token, id }) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.put(`${api}/event/${ id }`, body, config);
+    return promise;
+}
+
+function getFinancialEventInfo({ id, token }) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.get(`${api}/event/${ id }`, config);
+    return promise;
+}
+
 export {
     postSignUp,
     postLogin,
@@ -69,4 +99,7 @@ export {
     postNewEntry,
     getUserInfo,
     postNewExit,
+    deleteFinancialEvent,
+    updateFinancialEvent,
+    getFinancialEventInfo,
 }
