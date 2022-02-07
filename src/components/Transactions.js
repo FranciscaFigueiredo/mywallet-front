@@ -16,9 +16,6 @@ export default function Transactions() {
             setTotal(res.data.total.toFixed(2).replace('.', ','));
         });   
     }, [token]);
-    console.log(wallet);
-
-    // const totalFormated = total.toFixed(2).replace('.', ',');
 
     return (
         <Records>

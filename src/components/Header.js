@@ -1,5 +1,6 @@
 import { PageTitle } from "../styles/PageTitle";
 import { RiLogoutBoxRLine } from "react-icons/ri";
+import { BiArrowBack } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
 import { postLogout } from "../services/myWallet";
 import { UserLoginValidation } from "../userLogin";
@@ -21,7 +22,7 @@ export default function Header({ name, logout }) {
             {
                 logout ?
                 <h1><RiLogoutBoxRLine onClick={() => logoutUser()} /></h1>
-                : ""
+                : <h1><BiArrowBack onClick={() => history.push('/')} /></h1>
             }
             
         </PageTitle>

@@ -45,12 +45,28 @@ export default function Wallet({ wallet }) {
             }, 1000)
     }
 
+    function editFinancialEvent(id) {
+        history.push(`/edit/${ id }`);
+        // updateFinancialEvent({ token: user.token, id: _id})
+        //     .then((res) => {
+        //         setMessage('');
+        //         setModalSuccess(true);
+        //     })
+        //     .catch((err) => {
+        //         setMessage('Não foi possível editar, tente novamente mais tarde')
+        //         setModal(true);
+        //     })
+        //     setTimeout(() => {
+        //         history.push('/');
+        //     }, 1000)
+    }
+
     return (
         <Info>
             <Date>{ dateFormat }</Date>
-            <Description>{ description }</Description>
+            <Description onClick={ () => editFinancialEvent(_id) }>{ description }</Description>
             <Value value={value}>{ valueFormat }</Value>
-            <Delete onClick={() => removeFinancialEvent(_id)}>x</Delete>
+            <Delete onClick={ () => removeFinancialEvent(_id) }>x</Delete>
 
             {
                 modal ?

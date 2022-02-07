@@ -8,6 +8,7 @@ import FormNew from "../components/FormNew"
 import ModalError from "../shared/ModalError";
 import ModalSuccess from "../shared/ModalSuccess";
 import { UserLoginValidation } from "../userLogin";
+import NewAction from "../components/NewAction";
 
 export default function NewExit() {
     UserLoginValidation();
@@ -48,6 +49,7 @@ export default function NewExit() {
                 <ModalSuccess message={message} />
                 : ''
             }
+            <NewAction />
         </PageContainer>
     );
 }
