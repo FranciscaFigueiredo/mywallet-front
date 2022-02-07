@@ -51,6 +51,8 @@ const Date = styled.span`
 const Delete = styled.span`
     width: 12vw;
     color: #868686;
+
+    cursor: pointer;
 `;
 
 const Description = styled.span`

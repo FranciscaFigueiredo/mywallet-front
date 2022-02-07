@@ -71,13 +71,23 @@ function deleteFinancialEvent({ token, id }) {
     return promise;
 }
 
-function updateFinancialEvent({ token, id }) {
+function updateFinancialEvent({ body, token, id }) {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const promise = axios.put(`${api}/event/${ id }`, config);
+    const promise = axios.put(`${api}/event/${ id }`, body, config);
+    return promise;
+}
+
+function getFinancialEventInfo({ id, token }) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const promise = axios.get(`${api}/event/${ id }`, config);
     return promise;
 }
 
@@ -91,4 +101,5 @@ export {
     postNewExit,
     deleteFinancialEvent,
     updateFinancialEvent,
+    getFinancialEventInfo,
 }
