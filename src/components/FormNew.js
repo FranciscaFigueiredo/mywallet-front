@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 import Loader from "react-loader-spinner";
 
-export default function FormNew({ buttonName, setButtonName, setModal, setModalSuccess, setMessage }) {
+export default function FormNew({ action, id, buttonName, setButtonName, setModal, setModalSuccess, setMessage, financialEvent }) {
     const token = UserLoginValidation();
     const history = useHistory()
 
@@ -21,7 +21,7 @@ export default function FormNew({ buttonName, setButtonName, setModal, setModalS
     useEffect(() => {
         setValue(value.replace(',', '.'))
     }, [value, description]);
-
+    
     function errorResponse(err) {
         if(err.response.status === 400) {
             setValue('');
@@ -41,9 +41,7 @@ export default function FormNew({ buttonName, setButtonName, setModal, setModalS
         }
     }
 
-    function entry(event) {
-        event.preventDefault();
-
+    function entry() {
         setButtonName(<Loader
             type="ThreeDots"
             color="#ffffff"
@@ -72,9 +70,7 @@ export default function FormNew({ buttonName, setButtonName, setModal, setModalS
         })
     }
 
-    function exit(event) {
-        event.preventDefault();
-
+    function exit() {
         postNewExit({
             value,
             description
