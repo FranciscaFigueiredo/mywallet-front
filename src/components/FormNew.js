@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { postNewEntry, postNewExit, updateFinancialEvent } from "../services/myWallet";
+import { postNewEntry, postNewExit } from "../services/myWallet";
 
 import { UserLoginValidation } from "../userLogin";
 import { Button } from "../styles/ButtonStyle";
@@ -70,37 +70,6 @@ export default function FormNew({ action, id, buttonName, setButtonName, setModa
         })
     }
 
-    function editEntry(event) {
-        event.preventDefault();
-        setButtonName(<Loader
-            type="ThreeDots"
-            color="#ffffff"
-            height={40}
-            width={40}
-            timeout={2000} //2 secs
-        />);
-
-        updateFinancialEvent({
-            id,
-            value,
-            description
-        }, token)
-        .then((res) => {
-            setMessage('');
-            setModalSuccess(true);
-            setTimeout(() => {
-                history.push("/home")
-            }, 1000)
-        })
-        .catch((err) => {
-            console.error();
-            setButtonName('Atualizar entrada')
-            setDisable(false);
-
-            errorResponse(err);
-        })
-    }
-
     function exit() {
         postNewExit({
             value,
@@ -122,60 +91,8 @@ export default function FormNew({ action, id, buttonName, setButtonName, setModa
         })
     }
 
-    function editExit() {
-        setButtonName(<Loader
-            type="ThreeDots"
-            color="#ffffff"
-            height={40}
-            width={40}
-            timeout={2000} //2 secs
-        />);
-
-        updateFinancialEvent({
-            id,
-            value,
-            description
-        }, token)
-        .then((res) => {
-            setMessage('');
-            setModalSuccess(true);
-            setTimeout(() => {
-                history.push("/home")
-            }, 1000)
-        })
-        .catch((err) => {
-            console.error();
-            setButtonName('Atualizar saída')
-            setDisable(false);
-
-            errorResponse(err);
-        })
-    }
-
-    // function redirect(event) {
-    //     event.preventDefault();
-    //     if (action === 'edit-entry') {
-    //         console.log('edit-entry')
-    //         editEntry();
-    //     }
-
-    //     if (buttonName === 'Salvar entrada') {
-    //         entry();
-    //     }
-    //     // if (buttonName === 'Atualizar entrada') {
-    //     //     editEntry();
-    //     // }
-
-    //     if (buttonName === 'Salvar saída') {
-    //         exit();
-    //     }
-    //     if (buttonName === 'Atualizar saída') {
-    //         editExit();
-    //     }
-    // }
-
     return (
-        <form onSubmit={() => editEntry()}>
+        <form onSubmit={buttonName === 'Salvar entrada' ? entry : exit}>
             <Input compare={true} type="text" placeholder="Valor" required disabled={disable} value={value} onChange={(event) => (setValue(event.target.value))} />
             <Input compare={true} type="text" placeholder="Descrição" required disabled={disable} value={description} onChange={(event) => (setDescription(event.target.value))} />
             <Button type="submit" disabled={false}>{ buttonName }</Button>
