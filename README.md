@@ -1,6 +1,9 @@
 # My Wallet
 
-<img style='text-align: center;' src='./public/logo.jpeg' />
+<p align="center" >
+<img src='https://raw.githubusercontent.com/FranciscaFigueiredo/mywallet-front/feat/mongoIntegration/public/logo.jpeg' />
+</p>
+
 
 ### MyWallet is a web app to manage your wallet.
 
