@@ -93,9 +93,28 @@ export default function FormNew({ action, id, buttonName, setButtonName, setModa
 
     return (
         <form onSubmit={buttonName === 'Salvar entrada' ? entry : exit}>
-            <Input compare={true} type="text" placeholder="Valor" required disabled={disable} value={value} onChange={(event) => (setValue(event.target.value))} />
-            <Input compare={true} type="text" placeholder="Descrição" required disabled={disable} value={description} onChange={(event) => (setDescription(event.target.value))} />
-            <Button type="submit" disabled={false}>{ buttonName }</Button>
+            <Input
+                compare={true}
+                type="text"
+                placeholder="Valor"
+                required
+                disabled={disable}
+                value={value}
+                onChange={(event) => (setValue(event.target.value))}
+            />
+            <Input
+                compare={true}
+                type="text"
+                placeholder="Descrição"
+                required
+                disabled={disable}
+                value={description}
+                onChange={(event) => (setDescription(event.target.value))}
+            />
+            <Button
+                type="submit"
+                disabled={false}
+            >{ buttonName }</Button>
         </form>
     );
 }

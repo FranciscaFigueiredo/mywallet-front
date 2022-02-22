@@ -1,6 +1,6 @@
 # My Wallet
 
-<img src='./public/logo.jpeg' />
+<img style='text-align: center;' src='./public/logo.jpeg' />
 
 ### MyWallet is a web app to manage your wallet.
 
