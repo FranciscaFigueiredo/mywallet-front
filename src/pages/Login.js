@@ -111,6 +111,7 @@ export default function Login({ user, setUser, setToken }) {
             </TitleForm>
             <form onSubmit={logInto}>
                 <Input
+                    autocomplete="false"
                     compare={true}
                     type="email"
                     placeholder="E-mail"
