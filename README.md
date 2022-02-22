@@ -1,4 +1,4 @@
-# My Wallet
+# MyWallet
 
 <p align="center" >
 <img src='https://raw.githubusercontent.com/FranciscaFigueiredo/mywallet-front/feat/mongoIntegration/public/logo.jpeg' />
@@ -25,7 +25,7 @@ Backend with PostgreSQL: https://github.com/FranciscaFigueiredo/mywallet-postgre
 
 ### - Clone repository
 ```
-  git clone https://github.com/FranciscaFigueiredo/API-MyWallet---mongodb.git
+  git clone https://github.com/FranciscaFigueiredo/mywallet-front.git
 ```
 
 <br/>
@@ -45,25 +45,10 @@ or
 ### - Start
 
 ```
-  npm start:dev
+  npm start
 ```
 
 <br/>
-
-### - Prepare the backend and database
-
-- Edit the .env.example file with the data needed to connect to your database and edit the filename to .env.dev for a developer environment.
-
-- Make sure you have mongoDB installed and ready to use:
-
-#### Run in terminal:
-```
-  mongod --dbpath ~/.mongo
-```
-  #### And
-```
-  mongo 
-```
 
 
 <br/>
