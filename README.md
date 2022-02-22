@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# My Wallet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src='./public/logo.jpeg' />
 
-## Available Scripts
+### MyWallet is a web app to manage your wallet.
 
-In the project directory, you can run:
+You can add debits and credits to your account.
 
-### `npm start`
+Deploy: https://mywallet-seven.vercel.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Backend with MongoDB: https://github.com/FranciscaFigueiredo/API-MyWallet---mongodb
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Backend with PostgreSQL: https://github.com/FranciscaFigueiredo/mywallet-postgres-back
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to install and run on terminal
 
-### `npm run build`
+#### It is necessary to install node: https://nodejs.org/en/download/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### - Clone repository
+```
+  git clone https://github.com/FranciscaFigueiredo/API-MyWallet---mongodb.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `npm run eject`
+### - Install dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+  npm i
+```
+or
+```
+  npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### - Start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+  npm start:dev
+```
 
-## Learn More
+<br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### - Prepare the backend and database
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Edit the .env.example file with the data needed to connect to your database and edit the filename to .env.dev for a developer environment.
 
-### Code Splitting
+- Make sure you have mongoDB installed and ready to use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Run in terminal:
+```
+  mongod --dbpath ~/.mongo
+```
+  #### And
+```
+  mongo 
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br/>
 
-### Making a Progressive Web App
+## **Technologies**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![React Badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### **Tooling:**
+![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)

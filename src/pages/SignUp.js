@@ -106,7 +106,7 @@ export default function SignUp() {
         <PageContainer page="center" >
             <TitleForm><h1>MYWallet</h1></TitleForm>
             <form onSubmit={signup}>
-                <Input compare={true} type="text" placeholder="Nome" disabled={disable} required value={name} onChange={(event) => (setName(event.target.value))} />
+                <Input autocomplete="false" compare={true} type="text" placeholder="Nome" disabled={disable} required value={name} onChange={(event) => (setName(event.target.value))} />
                 <Input compare={true} type="email" placeholder="E-mail" disabled={disable} required value={email} onChange={(event) => (setEmail(event.target.value))} />
                 <Input compare={compare} type="password" placeholder="Senha" disabled={disable} required value={password} onChange={(event) => (setPassword(event.target.value))} />
                 <Input compare={compare} type="password" placeholder="Confirme sua senha" disabled={disable} required value={confirmPassword} onChange={(event) => (setConfirmPassword(event.target.value))} />
